@@ -15,6 +15,7 @@ import os
 
 for folder_name, subfolders, filenames in os.walk('C:\\Users'):
     print('The current folder is {}'.format(folder_name))
+
     for subfolder in subfolders:
             print('SUBFOLDER OF {}: {}'.format(folder_name, subfolder))
             for filename in filenames:
