@@ -5,7 +5,7 @@ import itertools
 
 def testFunction(x):
     return x < 40
-
+  
 
 def main():
     # cycle iterator can be used to cycle over a collection
