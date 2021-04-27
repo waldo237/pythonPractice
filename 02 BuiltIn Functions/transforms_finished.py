@@ -15,7 +15,7 @@ def filterFunc2(x):
 
 def squareFunc(x):
     return x**2
-
+    
 
 def toGrade(x):
     if (x >= 90):
