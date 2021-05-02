@@ -38,8 +38,8 @@ class LinkedList():
         else:
             currNode = self.head
             while(currNode is not None):
-                if(currNode.next is not None and currNode.next.data == value):
-                     result.append(currNode.next.data)
+                if(currNode and currNode.data == value):
+                    result.append(currNode.data)
                 currNode = currNode.next
         return result
 
@@ -75,6 +75,7 @@ def main():
     list.prepend('segundo')
     list.prepend('tercero')
     list.prepend('cuarto')
+    list.append('cuarto')
     list.append('cuarto')
     list.append('cuarto')
     # list.delete('primero')
