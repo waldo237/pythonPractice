@@ -31,14 +31,24 @@ class LinkedList():
             newNode.next = self.head
             self.head = newNode
 
+    def search(self, value):
+        result = []
+        if(self.head is None):
+            result.append(None)
+        else:
+            currNode = self.head
+            while(currNode is not None):
+                if(currNode.next is not None and currNode.next.data == value):
+                     result.append(currNode.next.data)
+                currNode = currNode.next
+        return result
+
     def delete(self, value):
         if(self.head is None):
             return None
         else:
             if(self.head.data == value):
                 self.head = self.head.next
-            # elif(self.tail.data == value):
-            #     self.tail = None
             else:
                 currNode = self.head
                 while(currNode is not None):
@@ -65,11 +75,14 @@ def main():
     list.prepend('segundo')
     list.prepend('tercero')
     list.prepend('cuarto')
-    list.delete('primero')
-    list.delete('segundo')
+    list.append('cuarto')
+    list.append('cuarto')
+    # list.delete('primero')
+    # list.delete('segundo')
     # list.delete('tercero')
-    list.delete('cuarto')
-    print(f'{list.print()}')
+    # list.delete('cuarto')
+    # list.delete('cuarto')
+    print(f'{list.search("cuarto")}')
 
 
 if __name__ == '__main__':
