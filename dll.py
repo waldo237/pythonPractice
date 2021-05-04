@@ -99,6 +99,33 @@ class DoublyLinkedList(object):
             new_node.next = self.head
             self.head.prev = new_node
             self.head = new_node
-            self.count+= 1
+            self.count += 1
 
-    
+    def reverse(self):
+        """ Reverse list """
+        current = self.head
+        while current:
+            temp = current.next
+            current.next = current.prev
+            current.prev = temp
+            current = current.prev
+
+        temp = self.head
+        self.head = self.tail
+        self.tail = temp
+
+    def __getitem__(self, index):
+        if index > self.count - 1:
+            raise Exception("Index out of range.")
+        current = self.head
+        for n in range(index):
+            current = current.next
+        return current.data
+
+    def __setitem__(self, index, value):
+        if index > self.count - 1:
+            raise Exception("Index out of range.")
+        current = self.head
+        for n in range(index):
+            current = current.next
+        current.data = value
