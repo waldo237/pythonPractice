@@ -28,9 +28,41 @@ class DoublyLinkedList(object):
         self.count += 1
 
     def iter(self):
-       """ Iterate through the list """
-       current = self.head
-       while current:
-           val = current.data
-           current = current.next
-           yield val 
+        """ Iterate through the list """
+        current = self.head
+        while current:
+            val = current.data
+            current = current.next
+            yield val
+
+    def reverse_iter(self):
+        """ Iterate throught the list backwards """
+        current = self.tail
+        while current:
+            val = current.data
+            current = current.prev
+            yield val
+
+    def delete(self, data):
+        """ Delete a node from the list """
+        current = self.head
+        node_deleted = False
+
+        if current is None:
+            node_deleted = False
+        elif current.data == data:
+            self.head = current.next
+            self.head.prev = None
+            node_deleted = True
+        elif self.tail.data == data:
+            self.tail = self.tail.prev
+            self.tail.next = None
+            node_deleted = True
+
+        else:
+            while current:
+                if current.data == data:
+                    current.prev.next = current.next
+                    current.next.prev = current.prev
+                    node_deleted = True
+                current = current.next
