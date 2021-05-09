@@ -18,13 +18,14 @@ class Vertex:
     def getWeight(self, nbr):
         return self.connectTo[nbr]
 
+
 class Graph:
     def __init__(self):
         self.vertList = {}
         self.numVertices = 0
 
     def addVertex(self, key):
-        self.numVertices = self.numVertices +1
+        self.numVertices = self.numVertices + 1
         newVertex = Vertex(key)
         self.vertList[key] = newVertex
         return newVertex
@@ -45,4 +46,16 @@ class Graph:
             nv = self.addVertex(t)
         self.vertList[f].addNeigbor(self.vertList[t], cost)
 
-        
+    def __iter__(self):
+        return iter(self.vertList.values())
+
+
+g = Graph()
+for i in range(6):
+    g.addVertex(i)
+
+g.vertList
+g.addEdge(0, 1, 2)
+for vertex in g:
+    print(vertex)
+    print(vertex.getConnections())
