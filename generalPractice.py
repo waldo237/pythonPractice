@@ -1,16 +1,26 @@
-def addition(base, *args):
-    result = 0
-    for arg in args:
-        result += arg
-
-    return result
+from collections import Counter
 
 
 def main():
-    print(addition(43,24,65 *87,5456, 23,4,5.5))
-    print(addition(43,24,65,87,5456, 23,4,5.5))
-    myNums = [5, 10, 15, 20]
-    print(addition(*myNums))
+    # list of students in class 1
+    class1 = ["Bob", "James", "Chad", "James", "Darcy", "Penny", "Hannah"
+              "Kevin", "James", "Melanie", "Becky", "Steve", "Frank"]
+
+    # list of students in class 2
+    class2 = ["Bill", "Barry", "Cindy", "Debbie", "Frank",
+              "Gabby", "Kelly", "James", "Joe", "Sam", "Tara", "Ziggy", "Ziggy"]
+
+    c1 = Counter(class1)
+    c2 = Counter(class2)
+
+    print(c1["James"])
+
+    print(sum(c1.values()), 'students in class 1')
+    print(sum(c2.values()), 'students in class 2')
+    c1.update(class2)
+    print(sum(c1.values()), "students in class 1 and 2")
+    print(c1.most_common())
+    print(c1 & c2)
 
 if __name__ == "__main__":
     main()
