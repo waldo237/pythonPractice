@@ -1,26 +1,30 @@
 import itertools
 
 
+def testFunction(x):
+    return x < 50
+
 def main():
-    days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-    daysFr = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"]
-    i = iter(days)
-    print(next(i))
+    seq1 = ["Joe", "Juan", "Marlon"]
+    cycle1 = itertools.cycle(seq1)
+    print(next(cycle1))
+    print(next(cycle1))
+    print(next(cycle1))
 
-    with open('dll.py', "r") as fp:
-        for line in iter(fp.readline, ''):
-            print(line)
+    count1 = itertools.count(100, 10)
+    print(next(count1))
+    print(next(count1))
+    print(next(count1))
 
-    for m in range(len(days)):
-        print(m+1, days[m])
+    vals = [10, 20, 30, 40, 50, 40, 30]
+    acc = itertools.accumulate(vals, min)
+    print(list(acc))
+    x = itertools.chain('ABCD', '1234')
+    print(list(x))
     
-    for i, m in enumerate(days, start =1):
-        print(i, m)
+    print(list(itertools.dropwhile(testFunction, vals)))
+    print(list(itertools.takewhile(testFunction, vals)))
 
-    for m in zip(days, daysFr):
-        print(m[1])
 
-    for i, m in enumerate(zip(days, daysFr), start=1):
-        print(i, f"{m[1]} means {m[0]} in French")
 if __name__ == "__main__":
     main()
