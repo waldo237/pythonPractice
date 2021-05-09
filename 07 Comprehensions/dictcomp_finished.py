@@ -15,7 +15,7 @@ def main():
     team2 = {"White": 12, "Macke": 88, "Perce": 4}
     newTeam = {k: v for team in (team1, team2) for k, v in team.items()}
     print(newTeam)
-my_list = [1,2,3]
+
 
 if __name__ == "__main__":
     main()
