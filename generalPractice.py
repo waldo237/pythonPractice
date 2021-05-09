@@ -1,27 +1,37 @@
-from enum import Enum, unique, auto
 
 
-@unique
-class Fruit(Enum):
-    APPLE = 1
-    BANANA = 2
-    ORANGE = 3
-    TOMATO = 4
-    PEAR = auto()
+class Point():
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return f"<Point x:{self.x}, y:{self.y}"
+
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y +other.y)
+
+    def __sub__(self, other):
+        return Point(self.x - other.x, self.y -other.y)
+
+    def __iadd__(self, other):
+        self.x +=other.x
+        self.y +=other.y
+        return self
 
 def main():
-    print(Fruit.APPLE)
-    print(type(Fruit.APPLE))
-    print(repr(Fruit.APPLE))
+    p1 = Point(10, 20)
+    p2 = Point(30, 30)
+    print(p1, p2)
 
-    print(Fruit.APPLE.name, Fruit.APPLE.value)
+    p3 = p1 + p2
+    print(p3)
+    p4 = p1 - p2
+    print(p4)
 
-    print(Fruit.PEAR.value)
-
-    myfruits = {}
-    myfruits[Fruit.BANANA] = "I am waiting for you to turn yellow."
-    print(myfruits)
-
+    p1 += p2
+    print(p1)
+    
 
 if __name__ == "__main__":
     main()
