@@ -1,29 +1,18 @@
-import sys
-import os
-
-class ClassP:
-    def __init__(self):
-        self.prop =  "a new thing."
-    
-    def method1(self, arg):
-        pass
+from string import Template
 
 
 def main():
-    cls = ClassP()
-    cls.prop = 'not really'
-    b = bytes([0x32,0x49, 0x43, 0x21])
-    print(b)
+    str1 = "You are my buddy, {0} and {1}".format("Carlos", "Ana")
+    print(str1)
 
-    s = "my first string"
-    print(s)
-
-    s2 = b.decode('utf-8')
-    print(s+s2)
-
-    b2 = s.encode('utf-8')
-    print(b2)
-
-
+    templ = Template("You are doing this {activity} done by {author}.")
+    str2 = templ.substitute(activity="jogging", author="Dibbie")
+    print(str2)
+    data = {
+        "author": "Joe Marini",
+        "title": "Advanced Python"
+    }
+    str3 = templ.substitute(data)
+    print(str3)
 if __name__ == "__main__":
     main()
