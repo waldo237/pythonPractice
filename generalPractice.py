@@ -19,7 +19,7 @@ def main():
     print(repr(cls1))
     print(str(cls1))
     print(f"Formatted: {cls1}")
-    print(bytes(cls1))
+    print(bytes(cls1)) 
 
 if __name__ == "__main__":
     main()
