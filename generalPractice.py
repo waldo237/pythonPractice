@@ -1,26 +1,26 @@
-from collections import Counter
+from collections import defaultdict
 
 
 def main():
-    # list of students in class 1
-    class1 = ["Bob", "James", "Chad", "James", "Darcy", "Penny", "Hannah"
-              "Kevin", "James", "Melanie", "Becky", "Steve", "Frank"]
+    fruits = ['mango', 'peach', 'orange', 'banana',
+        'apple', 'grape', 'banana', 'banana', 'mango']
 
-    # list of students in class 2
-    class2 = ["Bill", "Barry", "Cindy", "Debbie", "Frank",
-              "Gabby", "Kelly", "James", "Joe", "Sam", "Tara", "Ziggy", "Ziggy"]
+    fruitCounter = defaultdict(int)
 
-    c1 = Counter(class1)
-    c2 = Counter(class2)
+    for fruit in fruits:
+        fruitCounter[fruit] += 1
 
-    print(c1["James"])
-
-    print(sum(c1.values()), 'students in class 1')
-    print(sum(c2.values()), 'students in class 2')
-    c1.update(class2)
-    print(sum(c1.values()), "students in class 1 and 2")
-    print(c1.most_common())
-    print(c1 & c2)
-
+    for(k,v) in fruitCounter.items():
+        print(f"{k}: {str(v)}")
+        
 if __name__ == "__main__":
     main()
+
+""" 
+mango: 2
+peach: 1
+orange: 1
+banana: 3
+apple: 1
+grape: 1
+ """
