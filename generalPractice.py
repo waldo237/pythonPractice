@@ -1,20 +1,26 @@
-from string import Template
+import itertools
 
 
 def main():
-    str1 = "You are my buddy, {0} and {1}".format("Carlos", "Ana")
-    print(str1)
+    days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    daysFr = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"]
+    i = iter(days)
+    print(next(i))
 
-    templ = Template("You are doing this {activity} done by {author}.")
-    str2 = templ.substitute(activity="jogging", author="Dibbie")
-    print(str2)
-    data = {
-        "author": "Joe Marini",
-        "title": "Advanced Python"
-    }
-    str3 = templ.substitute(data)
-    print(str3)
+    with open('dll.py', "r") as fp:
+        for line in iter(fp.readline, ''):
+            print(line)
 
+    for m in range(len(days)):
+        print(m+1, days[m])
+    
+    for i, m in enumerate(days, start =1):
+        print(i, m)
 
+    for m in zip(days, daysFr):
+        print(m[1])
+
+    for i, m in enumerate(zip(days, daysFr), start=1):
+        print(i, f"{m[1]} means {m[0]} in French")
 if __name__ == "__main__":
     main()
