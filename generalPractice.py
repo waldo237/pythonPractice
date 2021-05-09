@@ -14,5 +14,7 @@ def main():
     }
     str3 = templ.substitute(data)
     print(str3)
+
+
 if __name__ == "__main__":
     main()
