@@ -1,25 +1,27 @@
-class Person():
-    def __init__(self):
-        self.fname = "Carlos"
-        self.lname = "Martinez"
-        self.age = 25
+import datetime
 
-    def __repr__(self):
-        return f"<Person Class -fname:{self.fname}, lname:{self.lname}, age:{self.age}>"
 
-    def __str__(self):
-        return f"Person ({self.fname}, {self.lname} is {self.age})"
-    def __bytes__(self):
-        val =  f"Person:{self.fname}:{self.lname}:{self.age}"
-        return bytes(val.encode('utf-8'))
+def perm(l):
+    if len(l) <= 1:
+        return [l]
+    r = []
+    for i in range(len(l)):
+        s = l[:i] + l[i + 1:]
+        p = perm(s)
+        for x in p:
+            r.append(l[i: i + 1] + x)
+    return r
+
 
 def main():
-    cls1 = Person()
+    evens = [2, 4, 6, 8]
+    res = perm(evens)
+    name = "Fred"
+    print(len("He said his name is {name!r}."))
 
-    print(repr(cls1))
-    print(str(cls1))
-    print(f"Formatted: {cls1}")
-    print(bytes(cls1)) 
+    today = datetime.date(year=2017, month=1, day=27)
+    print(f"{today:%B %d, %Y}")
+
 
 if __name__ == "__main__":
     main()

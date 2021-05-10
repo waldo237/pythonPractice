@@ -9,7 +9,7 @@ def main():
     # Perform a mapping and filter function on a list
     evenSquared = list(map(lambda e: e**2, filter(lambda e: e > 4 and e < 16, evens)))
     print(evenSquared)
-
+    
     # Derive a new list of numbers frm a given list
     evenSquared = [e ** 2 for e in evens]
     print(evenSquared)
