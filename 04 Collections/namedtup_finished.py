@@ -6,7 +6,7 @@ import collections
 def main():
     # create a Point namedtuple
     Point = collections.namedtuple("Point", "x y")
-
+ 
     p1 = Point(10, 20)
     p2 = Point(30, 40)
 
